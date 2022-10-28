@@ -6,14 +6,46 @@
     </head>
     <body>
         <script>
+            
             function getComputerChoice(){
                 let computerChoice = ['rock', 'paper', 'scissors'];
                 const random = Math.floor(Math.random()*computerChoice.length);
-                console.log(computerChoice[random]);
+                //console.log(computerChoice[random]);
+                return computerChoice[random]; 
             }
+            
+            let playerChoice = prompt('rock, paper or scissors?');
+            let playerChoiceLower = playerChoice.toLowerCase();
+            
+            computerChoice = getComputerChoice();
+            
+            console.log("You Chose: " + playerChoiceLower); 
+            console.log("Computer Chose: " + computerChoice);
 
-            getComputerChoice();
-        
+            if (computerChoice == playerChoiceLower){
+                console.log('Tie!');
+            } else if (playerChoiceLower == 'rock') {
+                    if (computerChoice == 'scissors') {
+                        console.log("You Lose!")
+                    } else if (computerChoice == 'paper') {
+                        console.log('You Win!');
+                    }
+            } else if (playerChoiceLower == 'paper'){
+                    if (computerChoice == 'scissors'){
+                        console.log('You Lose!'); 
+                    } else if (computerChoice == 'rock'){
+                        console.log('You Win!');
+                    }
+            } else if (playerChoiceLower == 'scissors'){
+                    if (computerChoice == 'rock'){
+                        console.log('You Lose!'); 
+                    } else if (computerChoice == 'paper'){
+                        console.log('You Win!');
+                    }
+            }
+            
+            
+
         </script>
     </body>
 </html>
