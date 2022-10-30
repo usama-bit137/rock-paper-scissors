@@ -6,46 +6,48 @@
     </head>
     <body>
         <script>
-            
-            function getComputerChoice(){
-                let computerChoice = ['rock', 'paper', 'scissors'];
-                const random = Math.floor(Math.random()*computerChoice.length);
-                //console.log(computerChoice[random]);
-                return computerChoice[random]; 
+
+            function getComputerChoice() {
+                const random = Math.floor(Math.random()*optionsArray.length);
+                return optionsArray[random]; 
             }
             
-            let playerChoice = prompt('rock, paper or scissors?');
+            function playRound(playerSelection, computerSelection){
+                
+                console.log("You Chose: " + playerSelection); 
+                console.log("Computer Chose: " + computerSelection);
+
+                if (computerSelection == playerSelection){
+                    return console.log('Tie!');
+                } else if (playerSelection == 'rock') {
+                    if (computerSelection == 'scissors') {
+                        return console.log("You Lose!");
+                    } else if (computerSelection == 'paper') {
+                        return console.log('You Win!');
+                    }
+                } else if (playerSelection== 'paper'){
+                    if (computerSelection == 'scissors'){
+                        return console.log('You Lose!'); 
+                    } else if (computerSelection == 'rock'){
+                        return console.log('You Win!');
+                    }
+                } else if (playerSelection == 'scissors'){
+                    if (computerSelection == 'rock'){
+                        return console.log('You Lose!'); 
+                    } else if (computerSelection == 'paper'){
+                        return console.log('You Win!');
+                    }
+                }
+            }   
+
+            let optionsArray = ['rock', 'paper', 'scissors'];
+            let playerChoice = prompt('rock, paper or scissors?'); // player entry.
+            
             let playerChoiceLower = playerChoice.toLowerCase();
+            let computerChoice = getComputerChoice();
+             
+            playRound(playerChoiceLower, computerChoice);
             
-            computerChoice = getComputerChoice();
-            
-            console.log("You Chose: " + playerChoiceLower); 
-            console.log("Computer Chose: " + computerChoice);
-
-            if (computerChoice == playerChoiceLower){
-                console.log('Tie!');
-            } else if (playerChoiceLower == 'rock') {
-                    if (computerChoice == 'scissors') {
-                        console.log("You Lose!")
-                    } else if (computerChoice == 'paper') {
-                        console.log('You Win!');
-                    }
-            } else if (playerChoiceLower == 'paper'){
-                    if (computerChoice == 'scissors'){
-                        console.log('You Lose!'); 
-                    } else if (computerChoice == 'rock'){
-                        console.log('You Win!');
-                    }
-            } else if (playerChoiceLower == 'scissors'){
-                    if (computerChoice == 'rock'){
-                        console.log('You Lose!'); 
-                    } else if (computerChoice == 'paper'){
-                        console.log('You Win!');
-                    }
-            }
-            
-            
-
         </script>
     </body>
 </html>
