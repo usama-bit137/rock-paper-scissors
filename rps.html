@@ -2,18 +2,31 @@
 <html>
 
     <head>
-        <meta charset = "UTF-8">
+        <meta charset = "UTF-8"/>
         <title>Rock, Paper, Scissors!</title>
+        <link rel = 'stylesheet' href = "style.css"/>
     </head>
-    
+  
     <body>
+        <div class = "game">
+            <div class = 'banner'><!--<img src = "rockpaperscissors.png"--></div>
+            <div class = "container">
+                <button id = "rock">Rock</button>
+                <button id = "paper">Paper</button>
+                <button id = "scissors">Scissors</button>
+            </div>
+        </div>
+        
+
+        <!--JavaScript code-->
+
         <script>
             let optionsArray = ['rock', 'paper', 'scissors'];
 
             function getComputerChoice() {
                 const random = Math.floor(Math.random()*optionsArray.length);
                 return optionsArray[random]; 
-            }
+            };
         
             function playRound(playerSelection, computerSelection){
         
@@ -45,44 +58,35 @@
                 }
                 
                 return result;
-            }   
+
+                // adding an Event listenter. 
+                // So we have a button set up already
+                // let's use Method 3: 
+            };
+
+            const rock = document.querySelector('#rock'); 
+            rock.addEventListener('click', ()=>{
+                var verdict = playRound('rock', getComputerChoice())
+                console.log(verdict);
+            });
             
-            function game(){
-
-                let playerScore = 0; 
-                let computerScore = 0;
-                
-                for (let i = 0; i < 5; i++) {
-                    console.log("Round " + (i+1));
-                    let computerChoice = getComputerChoice();
-                    let playerChoice = prompt('rock, paper or scissors?'); 
-                    let playerChoiceLower = playerChoice.toLowerCase();
-                    let result = playRound(playerChoiceLower, computerChoice);
-
-                    if (result == 'You Win!'){
-                        playerScore += 1; 
-                        console.log("You won this round :)");
-                    } else if (result == 'You Lose!'){
-                        computerScore += 1;
-                        console.log("You lost this round :(");
-                    }
-                }
-
-                console.log('Computer Score: ' + computerScore); 
-                console.log('Player Score: ' + playerScore);
-
-                if (playerScore > computerScore){
-                    console.log("Final: You Won!")
-                } else if (playerScore < computerScore) {
-                    console.log("Final: You've Lost!")
-                } else if (playerScore == computerScore){
-                    console.log("Final: It's a tie!")
-                }
-                
-            }
-
-            game();      
+            const paper = document.querySelector('#paper'); 
+            paper.addEventListener('click', ()=>{
+                var verdict = playRound('paper', getComputerChoice())
+                //console.log(verdict);
+            });
             
+            const scissors = document.querySelector('#scissors'); 
+            scissors.addEventListener('click', ()=>{
+                var verdict = playRound('scissors', getComputerChoice())
+                //console.log(verdict);
+            });
+
+            // create childNode which displays the result. 
+            
+            
+
+
         </script>
     </body>
 </html>
