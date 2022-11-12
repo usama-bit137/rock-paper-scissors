@@ -10,13 +10,12 @@
     <body>
         <div id = "oneGame">
             <div class = 'banner'>ROCK, PAPER, SCISSORS!</div>
-            <div class = "welcome">Choose your destiny!</div>
+            <div class = "welcome">Choose your destiny!  <button id = "restart">New Game</button></div>
             <div class = "container">
-                <button id = "rock">Rock</button>
-                <button id = "paper">Paper</button>
-                <button id = "scissors">Scissors</button>
+                <button id = "rock">👊</button>
+                <button id = "paper">✋</button>
+                <button id = "scissors">✌</button>
             </div>
-            <button id = "restart">New Game</button>
         </div>
         
 
@@ -31,7 +30,7 @@
             };
         
             function playRound(playerSelection, computerSelection){
-        
+                playerSelection.toLowerCase();
                 console.log("You Chose: " + playerSelection); 
                 console.log("Computer Chose: " + computerSelection);
 
@@ -45,7 +44,7 @@
                     } else if (computerSelection == 'paper') {
                         result = 'You Lose!';
                     }
-                } else if (playerSelection== 'paper'){
+                } else if (playerSelection == 'paper'){
                     if (computerSelection == 'scissors'){
                         result = 'You Lose!'; 
                     } else if (computerSelection == 'rock'){
@@ -71,8 +70,8 @@
             const score = document.createElement('div'); 
             const yourChoice = document.createElement('div')
 
-            score.setAttribute('style','margin-top: 20px; padding-top: 50px; background-color: orangered; flex:1; text-align: center;');
-            yourChoice.setAttribute('style',' margin-top: 20px; padding-top: 50px; height: 50px; background-color: orangered; flex:1; text-align: center;');
+            score.setAttribute('style','margin-top: 20px; padding-top: 50px; background-color: #FFBD33; flex:1; text-align: center;');
+            yourChoice.setAttribute('style',' margin-top: 20px; padding-top: 50px; height: 50px; background-color: #FFBD33; flex:1; text-align: center;');
 
             const rock = document.querySelector('#rock'); 
 
@@ -82,7 +81,7 @@
                 var verdict = playRound('rock', computerChoice)
                 oneGame.appendChild(score);
 
-                yourChoice.textContent = 'You chose: '  + rock.textContent +  ',  ' + '  ' + 'Computer chose: '  + computerChoice;
+                yourChoice.textContent = 'You chose: '  + 'rock' +  ',  ' + 'Computer chose: '  + computerChoice;
                 
                 if (verdict == 'You Win!'){
                     roundWon +=1;
@@ -92,11 +91,11 @@
                     roundTie += 1;
                 };
 
-                console.log(verdict);
+                
                 score.textContent =  'Score: ' +  roundWon;
                 score.appendChild(yourChoice);
                 var roundTotal = roundWon + roundLost + roundTie; 
-                console.log(roundTotal);
+                
 
                 if (roundTotal == 5){
                     if (roundWon > roundLost){
@@ -122,8 +121,8 @@
                 var verdict = playRound('paper', getComputerChoice())
                 score.textContent =  verdict;
                 oneGame.appendChild(score);
-                yourChoice.textContent = 'You chose: '  + paper.textContent +  ',  ' + '  ' + 'Computer chose: '  + computerChoice;
-                
+                yourChoice.textContent = 'You chose: '  + 'paper' +  ',  ' + 'Computer chose: '  + computerChoice;
+
                 if (verdict == 'You Win!'){
                     roundWon +=1;
                 } else if (verdict == 'You Lose!'){
@@ -135,8 +134,7 @@
                 score.textContent =  'Score: ' +  roundWon;
                 score.appendChild(yourChoice);
                 var roundTotal = roundWon + roundLost + roundTie; 
-                console.log(roundTotal);
-
+                
                 if (roundTotal == 5){
                     if (roundWon > roundLost){
                         yourChoice.textContent = 'Congratulations you Won!';
@@ -162,7 +160,7 @@
                 score.textContent =  verdict;
                 oneGame.appendChild(score);
 
-                yourChoice.textContent = 'You chose: '  + scissors.textContent +  ',  ' + '  ' + 'Computer chose: '  + computerChoice;
+                yourChoice.textContent = 'You chose: '  + 'scissors' +  ',  '  + 'Computer chose: '  + computerChoice;
                 if (verdict == 'You Win!'){
                     roundWon +=1;
                 } else if (verdict == 'You Lose!'){
@@ -174,7 +172,6 @@
                 score.textContent =  'Score: ' +  roundWon;
                 score.appendChild(yourChoice);
                 var roundTotal = roundWon + roundLost + roundTie; 
-                console.log(roundTotal);
                 
                 if (roundTotal == 5){
                     if (roundWon > roundLost){
@@ -198,6 +195,7 @@
                 console.log(roundTotal);
                 score.remove(); 
                 yourChoice.remove(); 
+                console.clear();
             });
 
         </script>

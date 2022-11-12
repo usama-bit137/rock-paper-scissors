@@ -1,18 +1,24 @@
 * {
     margin: 0 0;
-    font-family: 'Courier New', Courier, monospace;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     color: white;
-    background-color: rgb(250, 166, 135);
+    background-color:#FFBD33; 
 }
 
 .welcome{
     text-align: center; 
     padding: 10px; 
+    /*border: 4px solid black;*/
+    width: 200px;
+    line-height: 50px;
+    margin: auto; /*this horizontally centers elements. */
+    margin-bottom: 10px;
+    justify-content: center; 
     flex: 1;
 }
 
 .banner {
-    background-color: orangered;
+    background-color: orange;
     justify-content: center;
     padding: 50px 0;
     font-size: 40px;
@@ -23,10 +29,6 @@
     height: 100px; 
     justify-content: center;
     flex: 1 1 0; 
-}
-
-.img {
-    border: 4px solid black;
 }
 
 .oneGame{
@@ -48,8 +50,8 @@
 }
 
 button {  
-    background-color: orangered;
-    border: 2px solid orange;
+    background-color: orange;
+    border: 2px solid #FFBD33;
     border-radius: 100px;
     min-width: 100px;
     min-height: 100px;
@@ -58,7 +60,7 @@ button {
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 15px;
+    font-size: 30px;
     align-items: center;
     justify-content: space-between;
 }
