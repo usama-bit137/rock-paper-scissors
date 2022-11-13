@@ -101,12 +101,19 @@
                     if (roundWon > roundLost){
                         yourChoice.textContent = 'Congratulations you Won!';
                         score.appendChild(yourChoice);
+                        const winSound = new Audio('youwin.mp3');
+                        winSound.play();
                     } else if (roundWon < roundLost){
                         yourChoice.textContent = 'You Suck! Click Rock, Paper or Scissors to start again?';
                         score.appendChild(yourChoice);
+                        const loseSound = new Audio('yousuck.mp3'); 
+                        loseSound.play(); 
                     } else if (roundWon == roundLost){
                         yourChoice.textContent = 'Draw';
                         score.appendChild(yourChoice);
+
+                        const toastySound = new Audio('toasty.mp3'); 
+                        toastySound.play();
                     };
 
                     roundWon = roundLost = roundTie = 0; 
@@ -181,6 +188,8 @@
                     } else if (roundWon < roundLost){
                         yourChoice.textContent = 'You Suck! Click Rock, Paper or Scissors to start again?';
                         score.appendChild(yourChoice);
+                        const audio = new Audio("yousuck.mp3");
+                        audio.play();
                     } else if (roundWon == roundLost){
                         yourChoice.textContent = 'Draw';
                         score.appendChild(yourChoice);
